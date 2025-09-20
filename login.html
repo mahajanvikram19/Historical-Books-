@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>login Historical Books</title>
+  <style>
+    * { 
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+body {
+    background-color: #efefef;
+    color: #111; 
+    min-height: 100vh; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    padding: 20px;
+    }
+.container {
+    background: #fff;
+    border: 4px solid #111;
+    border-radius: 20px;
+    max-width: 420px;
+    width: 100%;
+    padding: 32px;
+    box-shadow: 0 0 15px rgba(255,255,255,0.2);
+    }
+h1 { 
+    text-align: center;
+    margin-bottom: 18px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    }
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+    }
+.tab {
+    cursor: pointer;
+    color: #111111;
+    padding: 10px 30px;
+    border-bottom: 3px solid transparent; 
+    font-weight: 600;
+    transition: border-color 0.2s;
+    }
+.tab.active {
+    border-bottom: 3px solid #111;
+    }
+form {
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+    }
+form.active {
+    display: flex;
+    }
+label {
+    font-size: 1rem;
+    }
+input {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #111;
+    background: #eee;
+    color: #111;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+    }
+input:focus {
+    border-color: #111;
+    }
+button {
+    background: #111;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: background 0.2s, color 0.2s;
+    }
+button:hover {
+    background: #eee;
+    color: #111;
+    border: 1px solid #111;
+    }
+.message {
+    color: #ff4d4d;
+    font-size: 1rem;
+    text-align: center;
+    min-height: 22px;
+    margin-top: 2px;
+    }
+.success {
+    color: #30df6f;
+    }
+    h1 {
+      transition-duration: 0.7s;
+    }
+    h1:hover {
+      color: #4d006b;
+      font-size: 35px;
+
+    }
+ a {
+   background: #111;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: background 0.2s, color 0.2s;
+    text-decoration: none;
+    padding-left: 40%;
+ }   
+ a:hover {
+   background: #eee;
+    color: #111;
+    border: 1px solid #111;
+ }
+@media (max-width: 480px) {
+.container {
+    padding: 16px;
+    } 
+.tab {
+    padding: 10px 14px;
+    font-size: .93rem;
+    }
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1><img src="C:\Users\Vicky\Downloads\historicalbooks\vite.svg">Historical Books</h1>
+    <div class="tabs">
+      <div class="tab active" id="login-tab">Login</div>
+      <div class="tab" id="signup-tab">Sign Up</div>
+    </div>
+    <!-- Messages from backend -->
+      <div class="alert {{ 'success' if ok else '' }}"></div>
+    <!-- Login Form -->
+    <form id="login-form" class="active" method="post" action="/login">
+      <label for="login-email">Email</label>
+      <input type="email" id="login-email" name="email" placeholder="Enter email" required />
+      <label for="login-password">Password</label>
+      <input type="password" id="login-password" name="password" placeholder="Enter password" required minlength="6" />
+      <button type="submit">Login</button>
+      <a href="C:\Users\Vicky\Downloads\historicalbooks\templates\index.html">Previous</a>
+      <div class="message" id="login-message"></div>
+    </form>
+    <!-- Sign Up Form -->
+    <form id="signup-form" method="post" action="/register">
+      <label for="signup-username">Username</label>
+      <input type="text" id="signup-username" name="username" placeholder="Choose a username" required minlength="3" maxlength="15" />
+      <label for="signup-email">Email</label>
+      <input type="email" id="signup-email" name="email" placeholder="Enter email" required />
+      <label for="signup-password">Password</label>
+      <input type="password" id="signup-password" name="password" placeholder="Create a password" required minlength="6" />
+      <label for="signup-password2">Confirm Password</label>
+      <input type="password" id="signup-password2" name="password2" placeholder="Confirm password" required minlength="6" />
+      <button type="submit">Sign Up</button>
+      <a href="C:\Users\Vicky\Downloads\historicalbooks\templates\index.html">Previous</a>
+      <div class="message" id="signup-message"></div>
+    </form>
+  </div>
+<script>
+  // Tabs
+  const loginTab = document.getElementById('login-tab');
+  const signupTab = document.getElementById('signup-tab');
+  const loginForm = document.getElementById('login-form');
+  const signupForm = document.getElementById('signup-form');
+  loginTab.addEventListener('click', () => {loginTab.classList.add('active'); signupTab.classList.remove('active'); loginForm.classList.add('active'); signupForm.classList.remove('active');});
+  signupTab.addEventListener('click', () => {signupTab.classList.add('active'); loginTab.classList.remove('active'); signupForm.classList.add('active'); loginForm.classList.remove('active');});
+
+  // Frontend signup validation
+  signupForm.addEventListener('submit', function(e){
+    const username = signupForm['signup-username'].value.trim();
+    const email = signupForm['signup-email'].value.trim();
+    const password = signupForm['signup-password'].value;
+    const password2 = signupForm['signup-password2'].value;
+    const msg = document.getElementById('signup-message');
+    msg.textContent = '';
+    if(username.length < 3 || username.length > 15){ msg.textContent = 'Username must be 3-15 characters.'; e.preventDefault(); return;}
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ msg.textContent = 'Enter a valid email.'; e.preventDefault(); return;}
+    if(password.length < 6){ msg.textContent = 'Password must be at least 6 characters.'; e.preventDefault(); return;}
+    if(password !== password2){ msg.textContent = 'Passwords do not match.'; e.preventDefault(); return;}
+  });
+</script>
+</body>
+</html>

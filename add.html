@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Historical Books</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 600px; margin: 20px auto; }
+    label { display: block; margin-top: 10px; }
+    input, button { padding: 8px; width: 100%; margin-top: 5px; }
+    ul { margin-top: 20px; }
+    li { background: #f4f4f4; margin: 5px 0; padding: 10px; border-radius: 4px; }
+    
+  </style>
+</head>
+<body>
+
+<h2>Historical Books</h2>
+
+<label for="title">Book Title:</label>
+<input type="text" id="title" placeholder="Enter book title">
+
+<label for="price">Price:</label>
+<input type="number" id="price" placeholder="Enter price">
+
+<button id="addBookBtn">Add Book</button>
+
+<ul id="bookList"></ul>
+
+<script>
+  const addBookBtn = document.getElementById('addBookBtn');
+  const bookList = document.getElementById('bookList');
+
+  addBookBtn.addEventListener('click', () => {
+    const title = document.getElementById('title').value.trim();
+    const price = document.getElementById('price').value.trim();
+
+    if (title === '' || price === '') {
+      alert('Please enter both Title and Price');
+      return;
+    }
+
+    const li = document.createElement('li');
+    li.textContent = `Title: ${title} | Price: ₹${price}`;
+    bookList.appendChild(li);
+
+    // Clear inputs
+    document.getElementById('title').value = '';
+    document.getElementById('price').value = '';
+  });
+</script>
+
+</body>
+</html>

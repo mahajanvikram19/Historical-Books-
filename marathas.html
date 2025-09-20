@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Maratha's - Historical Books</title>
+<style>
+  /* Reset */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    background: #efefef;
+    color: #111111;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+  }
+  .book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 20px;
+  }
+  .book-card {
+    position: relative;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(255,255,255,0.2);
+    border: 2px solid #111111;
+    width: 190px;
+    scale: 150%;
+  }
+  .book-image {
+    height: 300px;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+  }
+  .book-card:hover .book-image {
+    filter: grayscale(0%);
+  }
+  /* Info background with blur */
+  .book-info {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 15px;
+    color: #f0f0f0;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(6px);
+    border-top: 1px solid rgba(255,255,255,0.3);
+  }
+  .book-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  .book-price {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  /* Responsive adjustments */
+  @media (max-width: 480px) {
+    body {
+      padding: 10px;
+    }
+    .book-image {
+      height: 200px;
+    }
+  }
+  .the {
+    display: flex;
+    justify-content: start;
+    padding: 200px;
+  }
+  .inf {
+    cursor: none;
+    
+  }
+</style>
+</head>
+<body>
+
+<h1>Historical Books</h1>
+<div class="the">
+  <div class="book-grid">
+    <div class="book-card">
+      <img src="images/10.jpeg" alt="Historical Book 1" class="book-image"/>
+      <div class="book-info">
+        <div class="book-title">Marathas</div>
+        <div class="book-price">₹299</div>
+      </div>
+    </div>
+  </div>
+  <div class="inf">Lorem ipsum dolor sit amet consectetur adipisicing elit.<br> Modi deleniti beatae ratione 
+    dolores consequatur minima corrupti rem consectetur dignissimos?<br> Ipsam saepe mollitia eligendi 
+    temporibus ducimus ea repellat pariatur sint laborum?</div>
+</div>
+
+<script>
+  // You can add JS interactivity here, e.g., filter, sorting, or cart addition.
+</script>
+
+</body>
+</html>
