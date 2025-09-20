@@ -1,0 +1,213 @@
+:root {
+  --bg: #ffffff;
+  --fg: #111;
+  --accent: #111;
+  --border: #333;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+header {
+  background: var(--bg);
+  color: var(--fg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2%;
+  border-bottom: 1px solid var(--border);
+}
+.logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+nav ul li a {
+  color: var(--fg);
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+nav ul li a input {
+  border: 1px solid #333;
+  border-radius: 5px;
+  padding: 4px;
+  outline: none;
+  cursor: pointer;
+}
+#menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--fg);
+  font-size: 1.8rem;
+  cursor: pointer;
+  
+}
+.container {
+    align-items: center;
+    justify-content: space-between;
+     width: 100vw;
+    height: 70vh;
+    gap: 20px;
+    display: flex;
+    padding: 0px 20px 0px 20px;
+    background: linear-gradient(27deg, #fff,#4d006b);
+    /* box-shadow: 0 4px 16px #0007; */
+}
+.info {  
+    justify-content: center;
+    width: 60vw;
+    height: 90%;
+    padding: 180px 0px 0px 30rem;
+    background-blend-mode: screen;
+    
+}
+.info h1 {
+    color: #fff;
+
+}
+.x {
+    font-weight: bold;
+    color: #def;
+}
+.h{
+    font-size: 50px;
+    color: #4d006b;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    transition-duration: 0.7s;
+}
+.h:hover {
+    font-size: 60px;
+    text-shadow: 0 0 20px #ffffff71;
+}
+.info a {
+    background-color: #4d006b;
+    color: #def;
+    padding: 8px;
+    text-decoration: none;
+    border-radius: 9px;
+    transition-duration: 0.5s;
+    border: 2px solid #def;
+}
+.info a:hover {
+    background-color: #480dd113;
+    color: #4d006b;
+    border: 2px solid #4d006b;
+    padding: 8px 30px 8px 20px;
+    
+  }
+  .pic {
+    
+    justify-content: center;
+    width: 60vw;
+    height: 100%;
+    /* padding-left: 10px; */
+  }
+  .pic img {
+    background-size: cover;
+    width: 80%;
+    height: 100%;
+    mix-blend-mode: luminosity;
+    padding-bottom: -20px;
+}
+
+.details {
+    width: 100%;
+    margin-bottom: -40px;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+    display: flex;
+    padding: 20px 0px 0px 0px;
+  }
+  .information {
+    background-size: cover;
+    padding: 40px 20px 0px 20px;
+    justify-content: center;
+    align-items: center;
+    display: flexbox;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition-duration: 1s;
+    color: #fff;
+    font-size: 20px;
+    /* background-color: rgba(0, 0, 0, 0.5); */
+  }
+  .information:hover {
+    padding: 0%;
+    margin: 0;
+    color: #000;
+  }
+  .information img {
+    border-radius: 5px;
+    border: 2px solid #fff;
+
+  }
+  .information img:hover {
+  box-shadow: 0 0 40px 5px #4d006b31, 0 0;
+  /* box-shadow: 0 4px 16px rgba(0, 0, 0, 0.562); */
+
+}
+footer {
+  background: var(--bg);
+  text-align: center;
+  padding: 1.2rem 0;
+  border-top: 1px solid var(--border);
+  font-size: 0.94rem;
+  margin: 80px 0px 0px 0px;
+}
+footer section a {
+  color: #111;
+  font-size: 20px;
+  transition-duration: 0.3s;
+}
+footer section a:hover {
+  color: #4d006b;
+  font-size: 25px;
+
+}
+
+@media (max-width: 700px) {
+  nav ul {
+    flex-direction: column;
+    background: #121212;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 50vw;
+    min-width: 160px;
+    display: none;
+    padding: 1.5rem 0;
+    gap: 1.25rem;
+  }
+  nav ul.active {
+    display: flex;
+  }
+   #menu-toggle {
+    display: inline-block;
+  }
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+    main {
+    padding: 2% 2%;
+  }
+  .pic {
+    flex-direction: row;
+    position: absolute;
+    margin: 50%;
+  }
+}
